@@ -1,0 +1,222 @@
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+body{
+    height: 100vh;
+    width: 100vh;
+    background: url("https://images.unsplash.com/photo-1531685250784-7569952593d2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1074&q=80");
+    /* background: rgba(205, 205, 205, 0.701); */
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    /* position: relative; */
+}
+.time-zone{
+    position: absolute;
+    background-color: #fff;
+    top: 5%;
+    left: 5%;
+    padding: 3rem;
+    border-radius: 2rem;
+    /* background: url("./background.jpg"); */
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: #3f3f3f;
+    box-shadow: 6px 6px 6px black;
+    display: none;
+}
+.time-zone label,  select{
+    font-size: 2rem;
+    font-family: 'Poppins';
+    border: none;
+}
+.time-zone select{
+    background: #e3e3e3;
+    border-radius: 5px;
+    margin-left: 2rem;
+    padding: 0.5rem 1.5rem;
+}
+
+.res{
+    position: absolute;
+    height: 2rem;
+    width: 25rem;
+    background: #3f3f3f;
+    top: 25%;
+    left: 5%;
+    box-shadow: 2px 20px 5px #000;
+    border-radius: 5px;
+}
+.div-clock{
+    position: absolute;
+    height: 70vh;
+    width: 70vh;
+    background: #fff;
+    border-radius: 1000px;
+    /* border: solid 3vmin #000; */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    box-shadow: inset 40px 40px 90px rgba(0,0,0,.2),
+    inset 10px 10px 30px rgba(0,0,0,.5), 
+    20px 20px 30px rgba(0,0,0,.4),
+    40px 40px 60px rgba(0,0,0,.4);  
+    z-index: 1;
+}
+.div-clock:before{
+    content: '';
+    width: 95%;
+    height: 95%;
+    border-radius: 50%;
+    display: block;
+    background: transparent;
+    border: 2vmin solid white;
+    position: inherit;
+    top: -0.4%;
+
+}
+
+
+.center{
+    height: 5%;
+    width: 5%;
+    background: #fff;
+    border-radius: 100px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-35%,-50%);
+    border: 3px solid black;
+    z-index: 2;
+}
+.number{
+    color: black;
+    font-size: 2.5vw;
+    font-family: 'Poppins';
+}
+.twelve{
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%,0);
+    top: 3%;
+}
+.six{
+    position: absolute;
+    left: 50%;
+    bottom: 3%;
+    transform: translate(-50%,0);
+}
+.nine-three{
+    /* background-color: aqua;  */
+    width: 92%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    display: flex;
+    justify-content: space-between;
+
+}
+.one-eleven{
+    /* background-color: rebeccapurple; */
+    width: 50%;
+    position: absolute;
+    top: 11%;
+    left: 50%;
+    display: flex;
+    justify-content: space-between;
+    transform: translate(-50%,0);
+
+}
+.two-ten{
+    /* background-color: aqua;  */
+    width: 80%;
+    position: absolute;
+    top: 27%;
+    left: 50%;
+    transform: translate(-50%,0);
+    display: flex;
+    justify-content: space-between;
+}
+.four-eight{
+    width: 80%;
+    position: absolute;
+    bottom: 27%;
+    left: 50%;
+    transform: translate(-50%,0);
+    display: flex;
+    justify-content: space-between;
+}
+.five-seven{
+    width: 50%;
+    position: absolute;
+    bottom: 8%;
+    left: 50%;
+    display: flex;
+    justify-content: space-between;
+    transform: translate(-50%,0);
+}
+.hr-hand{
+    height: 18vh;
+    width: 1.2vh;
+    background-color: black;
+    position: absolute;
+    left: 50%;
+    bottom: 50%;
+    transform: rotateZ(30deg) translate(0,0);
+    transform-origin: bottom ;
+    transition: all .3s ease-in;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+
+}
+.min-hand{
+    height: 28vh;
+    width: 0.7vh;
+    background-color: black;
+    position: absolute;
+    left: 50%;
+    bottom: 50%;
+    transform: rotateZ(270deg) translate(0,0);
+    transform-origin: bottom center;
+    transition: all .3s ease-in;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+.sec-hand{
+    height: 25vh;
+    width: 0.2rem;
+    background-color: red;
+    position: absolute;
+    left: 50%;
+    bottom: 50%;
+    /* transform: rotateZ(330deg) translate(50%,0); */
+    transform-origin: bottom center;
+    transition: all .3s step-end;
+}
+/* .three{
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translate(-50%,-50%);
+}
+.nine{
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translate(50%,-50%);
+}
+.one{
+    position: absolute;
+    right: 25%;
+    top: 5%;
+    transform: translate(50%,0);
+}
+.two{
+    position: absolute;
+    right: 8%;
+    top: 22%;
+    transform: translate(50%,0);
+} */
