@@ -2,6 +2,23 @@ const hrHand = document.querySelector(".hr-hand");
 const minHand = document.querySelector(".min-hand");
 const secHand = document.querySelector(".sec-hand");
 const zone = document.getElementById("zone");
+
+const display = document.querySelector(".time-zone-div");
+const list = document.querySelector(".time-zone-list");
+const ul = document.querySelector(".time-zone-list ul");
+
+const listItem = document.createElement("li");
+listItem.textContent = "YAHo";
+
+display.addEventListener("click", () => {
+  list.style.display = "block";
+  console.log("click");
+});
+
+// ul.addEventListener("click", (e) => {
+//   console.log(e.target);
+// });
+
 let timezone = ["Asia/Kolkata"];
 const z = [];
 
@@ -23,11 +40,14 @@ async function getAllTimeZones() {
 }
 
 function createSelectItem(timezone) {
-  const selectItem = document.createElement("option");
-  selectItem.textContent = timezone["city"];
-  selectItem.setAttribute("name", timezone["continent"]);
-  selectItem.setAttribute("id", "some");
-  zone.appendChild(selectItem);
+  // const selectItem = document.createElement("option");
+  // selectItem.textContent = timezone["city"];
+  // selectItem.setAttribute("name", timezone["continent"]);
+  // selectItem.setAttribute("id", "some");
+  // zone.appendChild(selectItem);
+  const listItem = document.createElement("li");
+  listItem.textContent = timezone["city"];
+  ul.appendChild(listItem);
 }
 
 function fillSelect() {
@@ -53,17 +73,22 @@ function fillSelect() {
   }
 }
 
-zone.addEventListener("change", () => {
-  city = zone.value;
+list.addEventListener("click", (e) => {
+  city = e.target.textContent;
+  console.log(city);
   continent = z
     .map((val) => {
-      if (val["city"] === zone.value) {
+      if (val["city"] === city) {
         return val;
       }
     })
     .filter((val) => val !== undefined);
 
   fetchData(continent[0]);
+  if (city.length < 100) {
+    display.textContent = city;
+  }
+  list.style.display = "none";
 });
 
 // hrHand.style.transform = "rotateZ(90deg) translate(0,0)";
@@ -71,6 +96,7 @@ zone.addEventListener("change", () => {
 
 const fetchData = async (timeZone) => {
   // console.log(typeof timeZone["town"]);
+  // console.log(timeZone);
   let city = timeZone["city"];
   if (city.includes(" ")) {
     city = city.replace(/ /, "_");

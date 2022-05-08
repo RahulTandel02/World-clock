@@ -1,3 +1,8 @@
+
+@font-face {
+    font-family: sevenSegment;
+    src: url("./Seven\ Segment.ttf");
+}
 *{
     box-sizing: border-box;
     padding: 0;
@@ -13,24 +18,78 @@ body{
     background-position: center;
     /* position: relative; */
 }
-.time-zone{
+.time-zone-div{
+    height: 3.1rem;
+    width: 15rem;
     position: absolute;
-    background-color: #fff;
-    top: 5%;
-    left: 5%;
-    padding: 3rem;
-    border-radius: 2rem;
+    background-color: #000;
+    top: 20%;
+    left: 9%;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
     /* background: url("./background.jpg"); */
     background-repeat: no-repeat;
     background-size: cover;
-    color: #3f3f3f;
-    box-shadow: 6px 6px 6px black;
+    color: greenyellow;
+    font-size: 2rem;
+    font-family: 'sevenSegment';
+    text-align: center;
+    /* display: none; */
+}
+.time-zone-div:hover{
+    cursor: pointer;
+}
+.time-zone-list{
+    content: "";
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.558);
+    width: 100%;
+    height: 100%;
+    z-index: 100;
     display: none;
+    
+}
+/* .time-zone-list ul:before{
+    content: "";
+    height: 100%;
+    width: 100%;
+    background-color: #fff;
+    position: absolute;
+    z-index: -1;
+    border-radius: 10px;
+    
+} */
+.time-zone-list ul{
+    border-radius: 10px;
+    height: 50%;
+    width: 50%;
+    background-color: #fff;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    list-style: none;
+    transform: translate(-50%,-50%);
+    font-size: 25px;
+    font-family: 'Poppins';
+    transition: all .3s ease-in;
+    overflow-y: auto;
+    scroll-behavior: smooth;
+    
+}
+.time-zone-list ul li{
+    /* margin:; */
+    padding:  2rem 10rem;
+    font-size: 30px;
+}
+.time-zone-list ul li:hover{
+    background-color: rgb(168, 168, 168);
+    cursor: pointer;
 }
 .time-zone label,  select{
     font-size: 2rem;
     font-family: 'Poppins';
     border: none;
+    display: none;
 }
 .time-zone select{
     background: #e3e3e3;
